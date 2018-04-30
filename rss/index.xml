@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Untitled RSS Feed]]></title><description><![CDATA[Untitled RSS Feed]]></description><link>https://hytgbn.github.io</link><generator>RSS for Node</generator><lastBuildDate>Mon, 30 Apr 2018 04:45:17 GMT</lastBuildDate><atom:link href="https://hytgbn.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[HubPress를 이용한 테스트 포스트]]></title><description><![CDATA[<div class="paragraph">
+<p>설치는 간단히 <a href="https://github.com/HubPress/hubpress.io" class="bare">https://github.com/HubPress/hubpress.io</a> 를 fork하는 것으로 가능함.
+github page설정은 따로 하셔야 할 수 있고, 위 github README에 설명이 잘 되어 있으니 참고하면 될듯 함.</p>
+</div>
+<div class="paragraph">
+<p>사용하는 마크업 랭귀지가 <a href="http://asciidoc.org">Ascii Doc</a>을 사용하고 있는데 사용법 자체는 markdown과 비슷한 듯 함.. 여전히 markdown을 좋아하긴 하짐나 아마도 markdown의 문제점을 해결 하기 위해서 나온 것같은 느낌도 있고&#8230;&#8203; (<a href="http://ericholscher.com/blog/2016/mar/15/dont-use-markdown-for-technical-docs/" class="bare">http://ericholscher.com/blog/2016/mar/15/dont-use-markdown-for-technical-docs/</a>) <a href="https://asciidoctor.org/docs/user-manual/">매뉴얼</a>을 보면 조금 더 체계가 잡혀있는 듯 하지만 그 대신 조금 많이 더 복잡해 보임..</p>
+</div>
+<div class="paragraph">
+<p>여튼.. 한번 사용해 보도록 하겠습니당.j</p>
+</div>]]></description><link>https://hytgbn.github.io/2018/04/29/Hub-Press.html</link><guid isPermaLink="true">https://hytgbn.github.io/2018/04/29/Hub-Press.html</guid><pubDate>Sun, 29 Apr 2018 00:00:00 GMT</pubDate></item></channel></rss>
