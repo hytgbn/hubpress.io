@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>리눅스에서 인터넷 스피드 테스트</title>
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://hytgbn.github.io/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="//hytgbn.github.io/themes/casper/assets/css/screen.css?v=1525066178854" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+
+    <link rel="canonical" href="https://hytgbn.github.io/2018-04-29.adoc" />
+    <meta name="referrer" content="origin" />
+    
+    <meta property="og:site_name" content="hytgbn&#x27;s blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="리눅스에서 인터넷 스피드 테스트" />
+    <meta property="og:description" content="몇일 전 인터넷 서비스를 전환했습니다. 여기도 마찬가지로 신규고객들에게 주는 혜택이 기존 고객들보다 많은 것 같더라구요&amp;#8230;&amp;#8203; 그래서 대략 5년각 호갱이었던 Comcast에서 벗어나서 Frontier로 옮겼네요.. 150 up/down으로 옮겨서 기쁜 마음으로 (그전엔 25mb down, 그것도 비대칭&amp;#8230;&amp;#8203;) 여기 저기서 속도 체크를 speedtest.net으로 하다가 문득 파일 서버에서 하려면 어떻게" />
+    <meta property="og:url" content="https://hytgbn.github.io/2018-04-29.adoc" />
+    <meta property="article:published_time" content="2018-04-29T00:00:00.000Z" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="리눅스에서 인터넷 스피드 테스트" />
+    <meta name="twitter:description" content="몇일 전 인터넷 서비스를 전환했습니다. 여기도 마찬가지로 신규고객들에게 주는 혜택이 기존 고객들보다 많은 것 같더라구요&amp;#8230;&amp;#8203; 그래서 대략 5년각 호갱이었던 Comcast에서 벗어나서 Frontier로 옮겼네요.. 150 up/down으로 옮겨서 기쁜 마음으로 (그전엔 25mb down, 그것도 비대칭&amp;#8230;&amp;#8203;) 여기 저기서 속도 체크를 speedtest.net으로 하다가 문득 파일 서버에서 하려면 어떻게" />
+    <meta name="twitter:url" content="https://hytgbn.github.io/2018-04-29.adoc" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "hytgbn's blog",
+    "author": {
+        "@type": "Person",
+        "name": "hytgbn",
+        "image": "https://avatars3.githubusercontent.com/u/194596?v=4",
+        "url": "https://hytgbn.github.io/author/hytgbn/"
+    },
+    "headline": "리눅스에서 인터넷 스피드 테스트",
+    "url": "https://hytgbn.github.io/2018-04-29.adoc",
+    "datePublished": "2018-04-29T00:00:00.000Z",
+    "description": "몇일 전 인터넷 서비스를 전환했습니다. 여기도 마찬가지로 신규고객들에게 주는 혜택이 기존 고객들보다 많은 것 같더라구요&amp;#8230;&amp;#8203; 그래서 대략 5년각 호갱이었던 Comcast에서 벗어나서 Frontier로 옮겼네요.. 150 up/down으로 옮겨서 기쁜 마음으로 (그전엔 25mb down, 그것도 비대칭&amp;#8230;&amp;#8203;) 여기 저기서 속도 체크를 speedtest.net으로 하다가 문득 파일 서버에서 하려면 어떻게"
+}
+    </script>
+
+    <meta name="generator" content="HubPress" />
+    <link rel="alternate" type="application/rss+xml" title="hytgbn&#x27;s blog" href="https://hytgbn.github.io/rss/" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/atom-one-dark.min.css">
+    
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+</head>
+<body class="post-template nav-closed">
+
+    
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post">
+
+        <header class="post-header">
+            <h1 class="post-title">리눅스에서 인터넷 스피드 테스트</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2018-04-29">29 April 2018</time> 
+            </section>
+        </header>
+
+        <section class="post-content">
+            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>몇일 전 인터넷 서비스를 전환했습니다. 여기도 마찬가지로 신규고객들에게 주는 혜택이 기존 고객들보다 많은 것 같더라구요&#8230;&#8203; 그래서 대략 5년각 호갱이었던 Comcast에서 벗어나서 Frontier로 옮겼네요..</p>
+</div>
+<div class="paragraph">
+<p>150 up/down으로 옮겨서 기쁜 마음으로 (그전엔 25mb down, 그것도 비대칭&#8230;&#8203;) 여기 저기서 속도 체크를 speedtest.net으로 하다가 문득 파일 서버에서 하려면 어떻게 해야할까.. 고민하던 중에 발견한 github 바로바로 <a href="https://github.com/sivel/speedtest-cli">speedtest-cli</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="__">사용방법</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>사용방법은 울트라 초 간단.. (README 보세요&#8230;&#8203;)</p>
+</div>
+<div class="paragraph">
+<p>pip등을 이용할 수도 있지만 귀찮으니..</p>
+</div>
+<div class="paragraph">
+<p><code>curl -s <a href="https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py" class="bare">https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py</a> | python -</code></p>
+</div>
+<div class="paragraph">
+<p>이렇게 하면 바로 나오네요.. 저녁시간대라 집에서 사용량이 많은듯 하네요 (수치가 좀 낮네요&#8230;&#8203;)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[hytgbn@nuc]~% curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -
+Retrieving speedtest.net configuration...
+Testing from Frontier Communications (50.34.66.71)...
+Retrieving speedtest.net server list...
+Selecting best server based on ping...
+Hosted by CenturyLink, Inc (Seattle, WA) [15.80 km]: 10.357 ms
+Testing download speed................................................................................
+Download: 125.25 Mbit/s
+Testing upload speed................................................................................................
+Upload: 121.69 Mbit/s</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="___2">주의</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>위의 방법은 실행 하실 때 master branch의 코드를 받아 오기 때문에, 혹시 해당 계정이 악의를 품거나, 해킹 당한 경우, 원치 않는 코드가 실행 될 수도 있다는 점을 유의하세요~~</p>
+</div>
+</div>
+</div>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="https://hytgbn.github.io/author/hytgbn/" style="background-image: url(https://avatars3.githubusercontent.com/u/194596?v&#x3D;4)"><span class="hidden">hytgbn's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="https://hytgbn.github.io/author/hytgbn/">hytgbn</a></h4>
+
+                    <p>Read <a href="https://hytgbn.github.io/author/hytgbn/">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    
+                    
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text=%EB%A6%AC%EB%88%85%EC%8A%A4%EC%97%90%EC%84%9C%20%EC%9D%B8%ED%84%B0%EB%84%B7%20%EC%8A%A4%ED%94%BC%EB%93%9C%20%ED%85%8C%EC%8A%A4%ED%8A%B8&amp;url=https://hytgbn.github.io/2018-04-29.adoc"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://hytgbn.github.io/2018-04-29.adoc"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https://hytgbn.github.io/2018-04-29.adoc"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+        </footer>
+
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="https://hytgbn.github.io">hytgbn&#x27;s blog</a> &copy; 2018</section>
+            <section class="poweredby">Proudly published with <a href="http://hubpress.io">HubPress</a></section>
+        </footer>
+
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js?v="></script> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js?v="></script> 
+      <script type="text/javascript">
+        jQuery( document ).ready(function() {
+          // change date with ago
+          jQuery('ago.ago').each(function(){
+            var element = jQuery(this).parent();
+            element.html( moment(element.text()).fromNow());
+          });
+        });
+
+        hljs.initHighlightingOnLoad();
+      </script>
+
+    <script type="text/javascript" src="//hytgbn.github.io/themes/casper/assets/js/jquery.fitvids.js?v=1525066178854"></script>
+    <script type="text/javascript" src="//hytgbn.github.io/themes/casper/assets/js/index.js?v=1525066178854"></script>
+
+</body>
+</html>
