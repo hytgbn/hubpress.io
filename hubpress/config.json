@@ -5,6 +5,22 @@
     "branch": "master"
   },
   "theme": {
-    "name": "Casper"
+    "name": "casper"
+  },
+  "urls": {
+    "site": "https://hytgbn.github.io",
+    "hubpress": "https://hytgbn.github.io",
+    "theme": "//hytgbn.github.io/themes/casper",
+    "images": "https://hytgbn.github.io/images"
+  },
+  "initialisationConfigComponent": {
+    "name": "initialise-configuration",
+    "computed": {},
+    "methods": {},
+    "staticRenderFns": [
+      null,
+      null,
+      null
+    ]
   }
 }
