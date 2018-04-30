@@ -1,0 +1,16 @@
+// = HubPress Test Post
+// See https://hubpress.gitbooks.io/hubpress-knowledgebase/content/ for information about the parameters.
+// :published_at: 2018-04-29
+// :hp-tags: HubPress, Blog, Open_Source,
+// :hp-alt-title: HubPress test post
+
+
+= HubPress를 이용한 테스트 포스트
+
+설치는 간단히 https://github.com/HubPress/hubpress.io 를 fork하는 것으로 가능함.
+github page설정은 따로 하셔야 할 수 있고, 위 github README에 설명이 잘 되어 있으니 참고하면 될듯 함.
+
+사용하는 마크업 랭귀지가 link:http://asciidoc.org[Ascii Doc]을 사용하고 있는데 사용법 자체는 markdown과 비슷한 듯 함.. 여전히 markdown을 좋아하긴 하짐나 아마도 markdown의 문제점을 해결 하기 위해서 나온 것같은 느낌도 있고... (link:http://ericholscher.com/blog/2016/mar/15/dont-use-markdown-for-technical-docs/[]) link:https://asciidoctor.org/docs/user-manual/[매뉴얼]을 보면 조금 더 체계가 잡혀있는 듯 하지만 그 대신 조금 많이 더 복잡해 보임..
+
+
+여튼.. 한번 사용해 보도록 하겠습니당.j
