@@ -1,0 +1,39 @@
+// = 리눅스에서 인터넷 스피드 테스트
+// See https://hubpress.gitbooks.io/hubpress-knowledgebase/content/ for information about the parameters.
+// :published_at: 2018-04-29
+// :hp-tags: Internet speed, Linux, CLI, speedtest.net
+// :hp-alt-title: Speedtest from cli
+
+= 리눅스에서 인터넷 스피드 테스트
+
+몇일 전 인터넷 서비스를 전환했습니다. 여기도 마찬가지로 신규고객들에게 주는 혜택이 기존 고객들보다 많은 것 같더라구요... 그래서 대략 5년각 호갱이었던 Comcast에서 벗어나서 Frontier로 옮겼네요..
+
+150 up/down으로 옮겨서 기쁜 마음으로 (그전엔 25mb down, 그것도 비대칭...) 여기 저기서 속도 체크를 speedtest.net으로 하다가 문득 파일 서버에서 하려면 어떻게 해야할까.. 고민하던 중에 발견한 github 바로바로 link:https://github.com/sivel/speedtest-cli[speedtest-cli]
+
+
+== 사용방법
+
+사용방법은 울트라 초 간단.. (README 보세요...)
+
+pip등을 이용할 수도 있지만 귀찮으니..
+
+`curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -`
+
+이렇게 하면 바로 나오네요.. 저녁시간대라 집에서 사용량이 많은듯 하네요 (수치가 좀 낮네요...)
+
+----
+[hytgbn@nuc]~% curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -
+Retrieving speedtest.net configuration...
+Testing from Frontier Communications (50.34.66.71)...
+Retrieving speedtest.net server list...
+Selecting best server based on ping...
+Hosted by CenturyLink, Inc (Seattle, WA) [15.80 km]: 10.357 ms
+Testing download speed................................................................................
+Download: 125.25 Mbit/s
+Testing upload speed................................................................................................
+Upload: 121.69 Mbit/s
+----
+
+== 주의
+
+위의 방법은 실행 하실 때 master branch의 코드를 받아 오기 때문에, 혹시 해당 계정이 악의를 품거나, 해킹 당한 경우, 원치 않는 코드가 실행 될 수도 있다는 점을 유의하세요~~
